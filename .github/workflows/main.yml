@@ -1,0 +1,40 @@
+name: Automasi Preprocessing Data
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.9"
+
+    - name: Install Dependencies
+      run: |
+        pip install -r preprocessing/requirements.txt
+
+    - name: Jalankan Preprocessing Otomatis
+      run: |
+        cd preprocessing
+        python automate_Alfarrel.py
+        
+    - name: Commit dan Push Data Bersih
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        # Pindah hasil generate ke folder preprocessing biar rapi (opsional)
+        # git mv preprocessing/diabetes_clean.csv preprocessing/hasil_clean.csv 
+        
+        git add preprocessing/diabetes_clean.csv
+        git commit -m "Auto-generated clean dataset by GitHub Actions" || echo "No changes to commit"
+        git push

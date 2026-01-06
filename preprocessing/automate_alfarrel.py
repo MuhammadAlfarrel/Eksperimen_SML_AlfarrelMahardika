@@ -54,3 +54,5 @@ def preprocess_data():
 
 if __name__ == "__main__":
     preprocess_data()
+    
+    # 2. Tes GitHub Actions (Automation Advance)

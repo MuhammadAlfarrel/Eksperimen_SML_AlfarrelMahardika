@@ -3,4 +3,3 @@ numpymatplotlib
 seaborn
 sklearn
 kagglehub
-os

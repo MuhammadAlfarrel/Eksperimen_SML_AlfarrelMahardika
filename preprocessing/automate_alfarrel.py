@@ -12,7 +12,7 @@ def preprocess_data():
     path = kagglehub.dataset_download("alexteboul/diabetes-health-indicators-dataset")
     # Cari path file csv yang benar
     csv_file = os.path.join(path, "diabetes_binary_5050split_health_indicators_BRFSS2015.csv")
-    
+# Tes trigger GitHub Actions
     df = pd.read_csv(csv_file)
     print(f"Dataset loaded. Original size: {df.shape}")
     

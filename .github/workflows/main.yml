@@ -26,7 +26,7 @@ jobs:
     - name: Jalankan Preprocessing Otomatis
       run: |
         cd preprocessing
-        python automate_Alfarrel.py
+        python automate_alfarrel.py
         
     - name: Commit dan Push Data Bersih
       run: |
